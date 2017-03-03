@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">goBeauty</string>
+    <string name="btnFacebook">ENTRAR COM FACEBOOK</string>
+    <string name="title_activity_cadastro">CadastroActivity</string>
+    <string name="cadastrarEst">Enviar</string>
+    <string name="cadUser">Enviar</string>
+    <string name="txtProprietario">É um proprietário?!</string>
+    <string name="btnCadastro">Cadastre-se</string>
+    <string name="btnEntrar">Entrar</string>
+    <string name="txtEntrar">Entrar</string>
+    <string name="facebook_app_id">1203846273026282</string>
+    <string name="txtDadosEst">Dados do estabelecimento</string>
+    <string name="txtDadosAcesso">Dados de acesso</string>
+    <string-array name="arrayEstados">
+        <item></item>
+    </string-array>
+</resources>
