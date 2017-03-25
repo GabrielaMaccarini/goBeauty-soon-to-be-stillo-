@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "514519902026",
+    "firebase_url": "https://snappy-nature-150723.firebaseio.com",
+    "project_id": "snappy-nature-150723",
+    "storage_bucket": "snappy-nature-150723.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514519902026:android:9d9ff122181d4062",
+        "android_client_info": {
+          "package_name": "com.example.gabim.godiva"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514519902026-nphv53c8g20v4uti42e5v00j8p6c64a5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzaVZJFp9G45sNXhQtKBsovhPwCBmQfTo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

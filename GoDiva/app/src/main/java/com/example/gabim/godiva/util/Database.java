@@ -78,11 +78,16 @@ public class Database extends SQLiteOpenHelper {
                 "cnpj INTEGER NOT NULL, " +
                 "nome_estabelecimento VARCHAR (100) NOT NULL, "+
                 "username VARCHAR (100) NOT NULL, "+
-                "telefone INTEGER NOT NULL, "+
                 "email VARCHAR (50)  NOT NULL, "+
                 "senha VARCHAR (100) NOT NULL, "+
                 "confirmar_senha VARCHAR (100) NOT NULL)";
         db.execSQL(createTableProprietario);
+
+        final String alterTableDrop = "ALTER TABLE PROPRIETARIOS DROP TELEFONE";
+        db.execSQL(alterTableDrop);
+        final String alterTableAdd = "ALTER TABLE PROPRIETARIOS ADD TELEFONE STRING NOT NULL";
+        db.execSQL(alterTableAdd);
+
 
         DatabaseUpdate dbUpdate = new DatabaseUpdate(db);
 

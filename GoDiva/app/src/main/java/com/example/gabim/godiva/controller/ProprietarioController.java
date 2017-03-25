@@ -14,7 +14,6 @@ import com.example.gabim.godiva.util.Database;
  */
 
 public class ProprietarioController extends UsuarioController {
-    private Database db;
     private SQLiteDatabase instanciaDb;
 
 
@@ -27,13 +26,14 @@ public class ProprietarioController extends UsuarioController {
         long resultado = 1;
 
         instanciaDb = db.getWritableDatabase();
+
+        dados.put("cnpj", proprietario.getCNPJ());
+        dados.put("nome_estabelecimento", proprietario.getNomeEstabelecimento());
+        dados.put("telefone", proprietario.getTelefone());
         dados.put("id_cidade", proprietario.getCidade());
         dados.put("id_estado", proprietario.getEstado());
         dados.put("id_pais", proprietario.getPais());
-        dados.put("cnpj", proprietario.getCNPJ());
-        dados.put("nome_estabelecimento", proprietario.getNome());
         dados.put("username", proprietario.getUsername());
-        dados.put("telefone", proprietario.getTelefone());
         dados.put("email", proprietario.getEmail());
         dados.put("senha", proprietario.getSenha());
         dados.put("confirmar_senha", proprietario.getConfirmaSenha());
@@ -74,7 +74,7 @@ public class ProprietarioController extends UsuarioController {
         proprietario.setCNPJ(cursor.getInt(cursor.getColumnIndexOrThrow("cnpj")));
         proprietario.setNomeEstabelecimento(cursor.getString(cursor.getColumnIndexOrThrow("nome_estabelecimento")));
         proprietario.setUsername(cursor.getString(cursor.getColumnIndexOrThrow("username")));
-        proprietario.setTelefone(cursor.getInt(cursor.getColumnIndexOrThrow("telefone")));
+        proprietario.setTelefone(cursor.getString(cursor.getColumnIndexOrThrow("telefone")));
         proprietario.setEmail(cursor.getString(cursor.getColumnIndexOrThrow("email")));
         proprietario.setSenha(cursor.getString(cursor.getColumnIndexOrThrow("senha")));
         proprietario.setConfirmaSenha(cursor.getString(cursor.getColumnIndexOrThrow("confirmar_senha")));
@@ -87,11 +87,9 @@ public class ProprietarioController extends UsuarioController {
         instanciaDb = db.getWritableDatabase();
         dados.put("cnpj", proprietario.getCNPJ());
         dados.put("nome_estabelecimento", proprietario.getNomeEstabelecimento());
+        dados.put("telefone", proprietario.getTelefone());
         dados.put("username", proprietario.getUsername());
         dados.put("data_nasc", proprietario.getData_nasc());
-        /*dados.put("endereco", usuario.get());
-        dados.put("endereco", usuario.getEndereco());
-        dados.put("endereco", usuario.getEndereco());*/
         dados.put("email", proprietario.getEmail());
         dados.put("senha", proprietario.getSenha());
         dados.put("confirmar_senha", proprietario.getConfirmaSenha());

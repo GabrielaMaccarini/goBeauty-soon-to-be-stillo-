@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">goBeauty</string>
+    <string name="app_name">stillo</string>
     <string name="btnFacebook">ENTRAR COM FACEBOOK</string>
     <string name="title_activity_cadastro">CadastroActivity</string>
     <string name="cadastrarEst">Enviar</string>
@@ -8,10 +8,12 @@
     <string name="btnCadastro">Cadastre-se</string>
     <string name="btnEntrar">Entrar</string>
     <string name="txtEntrar">Entrar</string>
-    <string name="facebook_app_id">1203846273026282</string>
     <string name="txtDadosEst">Dados do estabelecimento</string>
     <string name="txtDadosAcesso">Dados de acesso</string>
-    <string-array name="arrayEstados">
-        <item></item>
-    </string-array>
+    <string name="title_activity_pagina_inicial">PaginaInicial</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="digite_sua_cidade">Digite sua cidade...</string>
+
+    <string name="facebook_app_id">209970262819866</string>
 </resources>

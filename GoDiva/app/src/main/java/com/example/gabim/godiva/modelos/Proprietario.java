@@ -7,7 +7,7 @@ package com.example.gabim.godiva.modelos;
 public class Proprietario extends Usuario {
     private String nomeEstabelecimento;
     private int CNPJ;
-    private int telefone;
+    private String telefone;
 
     public String getNomeEstabelecimento() {
         return nomeEstabelecimento;
@@ -25,11 +25,11 @@ public class Proprietario extends Usuario {
         this.CNPJ = CNPJ;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 }

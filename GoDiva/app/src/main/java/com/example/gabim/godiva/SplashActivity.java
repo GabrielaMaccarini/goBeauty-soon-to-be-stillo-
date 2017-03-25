@@ -1,11 +1,12 @@
 package com.example.gabim.godiva;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SplashActivity extends AppCompatActivity implements Runnable {
+public class SplashActivity extends Activity implements Runnable {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

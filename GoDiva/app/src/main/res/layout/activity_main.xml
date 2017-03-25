@@ -22,13 +22,13 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/icon_roxo_t"
-        android:id="@+id/imageView4"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp" />
+        android:layout_marginBottom="33dp"
+        app:srcCompat="@mipmap/stillo128" />
 
     <Button
         android:text="@string/btnFacebook"

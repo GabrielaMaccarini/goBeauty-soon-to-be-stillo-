@@ -20,7 +20,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/icon_roxo_t_meia_quatro"
+                app:srcCompat="@mipmap/stillo_icone64"
                 android:id="@+id/imageView3"
                 android:paddingTop="@dimen/activity_vertical_margin" />
 
@@ -60,6 +60,26 @@
                     android:ems="10"
                     android:id="@+id/etTelefoneProp"
                     android:hint="Telefone"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spnEstadoCad"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spnCidadeCad"
                     android:layout_weight="1" />
 
             </LinearLayout>
@@ -111,11 +131,12 @@
                 android:paddingBottom="@dimen/paddingBottomBTN">
 
                 <Button
-                    android:text="Button"
+                    android:text="Cadastro"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnCadastraEst"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:onClick="validaCadastro" />
             </LinearLayout>
 
         </LinearLayout>

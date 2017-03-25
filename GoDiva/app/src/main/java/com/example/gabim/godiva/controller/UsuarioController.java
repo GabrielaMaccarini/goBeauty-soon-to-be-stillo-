@@ -22,7 +22,7 @@ import java.util.jar.JarEntry;
  */
 
 public class UsuarioController {
-    private Database db;
+    protected Database db;
     private SQLiteDatabase instanciaDb;
 
     public UsuarioController(Context context){
@@ -55,17 +55,17 @@ public class UsuarioController {
         return resultado;
     }
 
-    public Cursor retrieve(){
-        String[] campos = {"id", "nome", "username", "data_nasc", "endereco", "email", "senha", "confirmar_senha"};
-        instanciaDb = db.getReadableDatabase();
-
-        Cursor cursor = instanciaDb.query("USUARIO", campos, null, null, null, null, null);
-        if (cursor != null){
-            cursor.moveToFirst();
-        }
-        instanciaDb.close();
-        return cursor;
-    }
+//    public Cursor retrieve(){
+//        String[] campos = {"id", "nome", "username", "data_nasc", "endereco", "email", "senha", "confirmar_senha"};
+//        instanciaDb = db.getReadableDatabase();
+//
+//        Cursor cursor = instanciaDb.query("USUARIO", campos, null, null, null, null, null);
+//        if (cursor != null){
+//            cursor.moveToFirst();
+//        }
+//        instanciaDb.close();
+//        return cursor;
+//    }
 
     public int VerificaLogin(String where){
         String[] campos = {"nome"};

@@ -19,7 +19,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/icon_roxo_t_meia_quatro"
+                app:srcCompat="@mipmap/stillo_icone64"
                 android:id="@+id/imageView6"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
@@ -94,9 +94,10 @@
                 android:inputType="textPassword" />
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/buttonPadding">
 
                 <Button
                     android:text="@string/btnCadastro"
@@ -104,7 +105,9 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/btnCadastrar"
                     android:layout_weight="1"
-                    android:onClick="validaCadastro" />
+                    android:onClick="validaCadastro"
+                    android:elevation="0dp"
+                    android:paddingStart="@dimen/activity_horizontal_margin" />
             </LinearLayout>
 
         </LinearLayout>

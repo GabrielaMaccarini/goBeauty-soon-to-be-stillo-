@@ -24,7 +24,7 @@ public class EstadoController {
         db = new Database(context);
     }
 
-    public List<Estados> retrieveEstados(Context ctx){
+    public List<Estados> retrieveEstados(Context context){
         String[] campos = {"id", "nome"};
         instanciaDb = db.getReadableDatabase();
 
