@@ -20,7 +20,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/icon_roxo_t_meia_quatro"
+                app:srcCompat="@mipmap/stillo_icone64"
                 android:id="@+id/imageView3"
                 android:paddingTop="@dimen/activity_vertical_margin" />
 
@@ -37,7 +37,7 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/etNomeEstabelecimento"
-                android:hint="Nome do estabelecimento" />
+                android:hint="@string/nome_do_estabelecimento" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -50,7 +50,7 @@
                     android:inputType="number"
                     android:ems="10"
                     android:id="@+id/etCNPJ"
-                    android:hint="CNPJ"
+                    android:hint="@string/cnpj"
                     android:layout_weight="1" />
 
                 <EditText
@@ -60,6 +60,26 @@
                     android:ems="10"
                     android:id="@+id/etTelefoneProp"
                     android:hint="Telefone"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spnEstadoCad"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spnCidadeCad"
                     android:layout_weight="1" />
 
             </LinearLayout>
@@ -78,7 +98,7 @@
                 android:inputType="textEmailAddress"
                 android:ems="10"
                 android:id="@+id/etEmailProp"
-                android:hint="E-mail" />
+                android:hint="@string/e_mail" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -86,7 +106,7 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/etUserProp"
-                android:hint="Nome de usuário" />
+                android:hint="@string/nome_de_usu_rio" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -102,7 +122,7 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:id="@+id/etConfSenhaProp"
-                android:hint="Confirmar senha" />
+                android:hint="@string/confirmar_senha" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -111,11 +131,12 @@
                 android:paddingBottom="@dimen/paddingBottomBTN">
 
                 <Button
-                    android:text="Button"
+                    android:text="@string/cadastro"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnCadastraEst"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:onClick="validaCadastro" />
             </LinearLayout>
 
         </LinearLayout>

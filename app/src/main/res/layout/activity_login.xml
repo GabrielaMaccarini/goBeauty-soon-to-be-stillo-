@@ -1,47 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.gabim.godiva.LoginActivity">
+    tools:context="com.example.gabim.godiva.LoginActivity"
+    android:orientation="vertical"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
-    <EditText
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
+        app:srcCompat="@mipmap/stillo124"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="161dp"
-        android:id="@+id/edtUserLogin"
-        android:hint="Login"
-        android:layout_weight="1" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="46dp"/>
 
     <EditText
+        android:id="@+id/edtUserLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
         android:ems="10"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/edtUserLogin"
-        android:layout_alignEnd="@+id/edtUserLogin"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:layout_above="@+id/edtSenhaLogin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
         android:id="@+id/edtSenhaLogin"
-        android:hint="Senha"
-        android:layout_weight="1" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/senha"
+        android:inputType="textPassword"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:text="@string/txtEntrar"
+        android:id="@+id/btnEntrar"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edtSenhaLogin"
         android:background="@color/background_button"
-        android:id="@+id/btnEntrar"
-        android:shadowColor="@android:color/background_dark"
-        android:textColor="@android:color/background_light" />
+        android:onClick="autenticaLogin"
+        android:text="@string/button" />
 
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/loginButton"
+        style="@style/com_facebook_auth_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="12dp"
+        android:hint="Entrar com Facebook"/>
 </RelativeLayout>

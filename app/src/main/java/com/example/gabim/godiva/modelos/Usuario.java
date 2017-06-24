@@ -6,6 +6,7 @@ package com.example.gabim.godiva.modelos;
 
 public class Usuario {
     private int id;
+    private int perfil;
     private String nome;
     private String username;
     private String data_nasc;
@@ -15,6 +16,38 @@ public class Usuario {
     private String email;
     private String senha;
     private String confirmaSenha;
+    private String nomeEstabelecimento;
+    private int CNPJ;
+    private String telefone;
+
+    public String getNomeEstabelecimento() {
+        return nomeEstabelecimento;
+    }
+
+    public void setNomeEstabelecimento(String nomeEstabelecimento) {
+        this.nomeEstabelecimento = nomeEstabelecimento;
+    }
+
+    public int getCNPJ() {
+        return CNPJ;
+    }
+
+    public void setCNPJ(int CNPJ) {
+        this.CNPJ = CNPJ;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    @Override
+    public String toString() {
+        return this.nomeEstabelecimento;
+    }
 
 
     public String getNome() {
@@ -84,5 +117,13 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(int perfil) {
+        this.perfil = perfil;
     }
 }

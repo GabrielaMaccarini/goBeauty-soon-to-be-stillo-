@@ -37,7 +37,12 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectResources">
+    <resource url="http://relaxng.org/ns/compatibility/annotations/1.0" location="C:/Program Files/Java/jdk1.8.0_102/jre/lib/resources.jar" />
+    <resource url="http://www.w3.org/1998/Math/MathML" location="C:/Program Files/Java/jdk1.8.0_102/jre/lib/resources.jar" />
+    <resource url="http://www.w3.org/2000/svg" location="$APPLICATION_HOME_DIR$/lib/idea.jar" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8 (2)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

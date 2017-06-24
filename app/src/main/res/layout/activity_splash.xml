@@ -10,11 +10,10 @@
     android:theme="@style/AppTheme.NoActionBar">
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/iconex128"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/imageView2"
-        android:contentDescription="" />
+        android:layout_centerVertical="true"
+        app:srcCompat="@mipmap/stillo124" />
 </RelativeLayout>

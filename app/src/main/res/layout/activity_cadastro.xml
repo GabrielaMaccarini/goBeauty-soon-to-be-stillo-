@@ -19,7 +19,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/icon_roxo_t_meia_quatro"
+                app:srcCompat="@mipmap/stillo_icone64"
                 android:id="@+id/imageView6"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"

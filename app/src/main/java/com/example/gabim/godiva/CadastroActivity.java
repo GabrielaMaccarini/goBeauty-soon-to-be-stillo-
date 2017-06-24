@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,6 +23,8 @@ import com.example.gabim.godiva.controller.UsuarioController;
 import com.example.gabim.godiva.modelos.Cidades;
 import com.example.gabim.godiva.modelos.Estados;
 import com.example.gabim.godiva.modelos.Usuario;
+import com.firebase.client.Firebase;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import java.util.List;
@@ -89,12 +92,6 @@ public class CadastroActivity extends AppCompatActivity {
                 validaCampoVazio(edtUserCad) && validaCampoVazio(edtSenhaCad) && validaCampoVazio(edtConfSenhaCad);
     }
 
-    public void salvarInfos(View view){
-        if (!validaCampos()){
-            return;
-        }
-    }
-
     public void trazEstados(Spinner spn){
         EstadoController crud = new EstadoController(getBaseContext());
         AllEstados = crud.retrieveEstados(getApplicationContext());
@@ -132,6 +129,7 @@ public class CadastroActivity extends AppCompatActivity {
                     }
 
                     ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, array);
+                    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spn.setAdapter(spinnerArrayAdapter);
                 }
             }
@@ -144,12 +142,12 @@ public class CadastroActivity extends AppCompatActivity {
     EditText edtEmailCad;EditText edtUserCad;EditText edtSenhaCad;EditText edtConfSenhaCad;
     Button btnCadastrar;
     String idUsuario; Usuario usuario;
+    Firebase referenciaDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-
 
         edtNomeCad      = (EditText) findViewById(R.id.edtNomeCad);
         edtNascCad      = (EditText) findViewById(R.id.edtNascCad);
@@ -180,13 +178,6 @@ public class CadastroActivity extends AppCompatActivity {
             edtConfSenhaCad.setText(usuario.getConfirmaSenha());
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater criaMenu = getMenuInflater();
-        criaMenu.inflate(R.menu.menu_cadastro_proprietario, menu);
-        return true;
-    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()) {
@@ -199,23 +190,28 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
     public void validaCadastro(View view){
-        if(!validaCampos()){
-        }
-        else if(!edtSenhaCad.getText().toString().equals(edtConfSenhaCad.getText().toString())){
-            Toast.makeText(getApplicationContext(), "As senhas não coincidem.", Toast.LENGTH_LONG).show();
+        CidadeController cityController = new CidadeController(getBaseContext());
+
+        if (!validaCampos()){
+            if(!edtSenhaCad.getText().toString().equals(edtConfSenhaCad.getText().toString())){
+                Toast.makeText(getApplicationContext(), "As senhas não coincidem.", Toast.LENGTH_LONG).show();
+            }
         }
         else{
-
             Usuario usuario = new Usuario();
+            usuario.setPerfil(2);
             usuario.setNome(edtNomeCad.getText().toString());
             usuario.setData_nasc(edtNascCad.getText().toString());
             usuario.setPais(1);
             usuario.setEstado(spnEstadoCad.getSelectedItemPosition()+1);
-            usuario.setCidade(spnEstadoCad.getSelectedItemPosition()+1);
+            int idCidade = cityController.buscaIdCidade(spnCidadeCad.getSelectedItem().toString());
+//            Toast.makeText(getBaseContext(), " "+idCidade, Toast.LENGTH_SHORT).show();
+            usuario.setCidade(idCidade);
             usuario.setEmail(edtEmailCad.getText().toString());
             usuario.setUsername(edtUserCad.getText().toString());
             usuario.setSenha(edtSenhaCad.getText().toString());
             usuario.setConfirmaSenha(edtConfSenhaCad.getText().toString());
+            SalvaPerfilUsuario.setUser(usuario);
 
 
             UsuarioController crud = new UsuarioController(getBaseContext());
@@ -231,9 +227,10 @@ public class CadastroActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Erro ao salvar usuário", Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(getBaseContext(), usuario.getNome()+", você foi cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+                Intent abrirPaginaInicial = new Intent(this, PaginaInicial.class);
+                abrirPaginaInicial.putExtra("username", usuario.getUsername());
+                startActivity(abrirPaginaInicial);
             }
-            Intent abrirPaginaInicial = new Intent(this, PaginaInicialActivity.class);
-            startActivity(abrirPaginaInicial);
         }
     }
 }

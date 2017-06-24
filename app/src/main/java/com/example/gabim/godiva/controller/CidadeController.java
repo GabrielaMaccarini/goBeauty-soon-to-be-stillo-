@@ -50,9 +50,39 @@ public class CidadeController {
         instanciaDb.close();
         return cidadeObjects;
     }
-    public long deleteCidades(){
+
+    public int buscaIdCidade(String txtCidade){
+        String[] campos = {"id"};
+        String where = "nome = '"+txtCidade+"'";
         instanciaDb = db.getReadableDatabase();
-        long resultado = instanciaDb.delete("cidades", null, null);
-        return resultado;
+
+        Cursor cursor = instanciaDb.query("cidades", campos, where, null, null, null, null);
+        int retornaIdCidade;
+
+        if (cursor.moveToNext()){
+            retornaIdCidade = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+        }else{
+            retornaIdCidade = 0;
+        }
+        return retornaIdCidade;
+    }
+
+    public List<Cidades> buscaIdCidades(String buscaCidade){
+        String[] campos = {"id"};
+        String where = "upper(nome) like '"+buscaCidade.toUpperCase()+"%'";
+        List<Cidades> cidades = new ArrayList<>();
+
+        instanciaDb = db.getReadableDatabase();
+
+        Cursor cursor = instanciaDb.query("cidades", campos, where, null, null, null, null);
+
+        while (cursor.moveToNext()){
+            Cidades cidade = new Cidades();
+            cidade.setId(cursor.getInt(cursor.getColumnIndexOrThrow("id")));
+
+            cidades.add(cidade);
+        }
+
+        return cidades;
     }
 }

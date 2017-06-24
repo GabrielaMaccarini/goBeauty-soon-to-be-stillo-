@@ -6,11 +6,18 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.nfc.Tag;
 import android.os.Message;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.gabim.godiva.modelos.Cidades;
 import com.example.gabim.godiva.modelos.Estados;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by gabim on 07/12/2016.
@@ -58,34 +65,25 @@ public class Database extends SQLiteOpenHelper {
 
         final String createTableUsuario = "CREATE TABLE USUARIO ( " +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "+
+                "perfil INTEGER NOT NULL, "+ //PERFIL STILLO: 1- ADM; 2- USUÁRIO NORMAL; 3- PROPRIETÁRIO;
                 "id_pais INTEGER REFERENCES paises (id) NOT NULL, "+
                 "id_estado INTEGER REFERENCES estados (id) NOT NULL, "+
                 "id_cidade INTEGER REFERENCES cidades (id) NOT NULL, "+
-                "nome VARCHAR (100) NOT NULL, "+
+                "nome VARCHAR (100), "+
                 "username VARCHAR (100) NOT NULL, "+
-                "data_nasc DATE NOT NULL, "+
-                "endereco VARCHAR (100), "+
+                "cnpj INTEGER, " +
+                "telefone VARCHAR (50), "+
+                "nome_estabelecimento VARCHAR (100), "+
+                "data_nasc DATE, "+
                 "email VARCHAR (50)  NOT NULL, "+
-                "senha VARCHAR (100) NOT NULL, "+
-                "confirmar_senha VARCHAR (100) NOT NULL)";
+                "senha VARCHAR (100) NOT NULL)";
         db.execSQL(createTableUsuario);
-
-        final String createTableProprietario = "CREATE TABLE proprietarios( " +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
-                "id_pais INTEGER REFERENCES paises (id) NOT NULL, "+
-                "id_estado INTEGER REFERENCES estados (id) NOT NULL, "+
-                "id_cidade INTEGER REFERENCES cidades (id) NOT NULL, "+
-                "cnpj INTEGER NOT NULL, " +
-                "nome_estabelecimento VARCHAR (100) NOT NULL, "+
-                "username VARCHAR (100) NOT NULL, "+
-                "telefone INTEGER NOT NULL, "+
-                "email VARCHAR (50)  NOT NULL, "+
-                "senha VARCHAR (100) NOT NULL, "+
-                "confirmar_senha VARCHAR (100) NOT NULL)";
-        db.execSQL(createTableProprietario);
+        final String insereADMApp = "INSERT INTO USUARIO(perfil, id_pais, id_estado, id_cidade, nome, username," +
+                "data_nasc, email, senha) VALUES (1, 1, 1, 1, 'Gabriela Maccarini', 'gabizmaccarini', '07/07/1997', " +
+                "'gabi.maccarini@hotmail.com', 'adm123')";
+        db.execSQL(insereADMApp);
 
         DatabaseUpdate dbUpdate = new DatabaseUpdate(db);
-
         dbUpdate.inserePais(1, "Brasil", "BR");
         dbUpdate.insereEstado(1, "Santa Catarina", "SC", 1);
         dbUpdate.insereCidadesSC();
@@ -97,5 +95,4 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(alterTableUsuario);
         this.onCreate(db);
     }
-
 }
